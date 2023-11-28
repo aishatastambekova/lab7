@@ -1,0 +1,178 @@
+lab7 
+def display_file_content(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            for line in file:
+                print(line, end='')
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
+file_path = "text1.txt"
+display_file_content(file_path)
+
+2)
+import random
+
+def read_random_line(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+            if lines:
+                random_line = random.choice(lines)
+                print("Random Line:", random_line.strip())
+            else:
+                print("File is empty.")
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
+file_path = "your_file.txt"  # Replace with the actual file path
+read_random_line(file_path)
+
+3)
+def count_uppercase_characters(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+            uppercase_count = sum(char.isupper() for char in content)
+            return uppercase_count
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        return 0
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return 0
+4)
+def count_lines_not_starting_with_D(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+            count = sum(1 for line in lines if not line.startswith('D'))
+            return count
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        return 0
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return 0
+
+5)
+def count_words_ending_with_F(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            words = file.read().split()
+            count = sum(1 for word in words if word.endswith(('F', 'f')))
+            return count
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        return 0
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return 0
+
+6)
+def count_all_none_words(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+           
+            words = content.split()
+            
+          
+            count_all = sum(1 for word in words if word.lower() == "all")
+            count_none = sum(1 for word in words if word.lower() == "none")
+
+            return count_all, count_none
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        return 0, 0
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return 0, 0
+
+7)
+from collections import Counter
+
+def count_word_frequency(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+
+            
+            words = content.split()
+
+            
+            word_frequency = Counter(words)
+
+            return word_frequency
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        return {}
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return {}
+
+
+8)
+def find_longest_word(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+
+          
+            words = content.split()
+
+       
+            longest_word = max(words, key=len)
+
+            return longest_word
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        return None
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+9)
+def correct_characters(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+
+            corrected_content = content.replace('B', 
+            
+            print(corrected_content)
+
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+10)
+def count_characters(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+
+            # Initialize counters for characters 'A' and 'B'
+            count_a = content.lower().count('a')
+            count_b = content.lower().count('b')
+
+            # Display the occurrences of characters 'A' and 'B'
+            print(f"a={count_a}, b={count_b}")
+
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
+
+
+
+
+
+
